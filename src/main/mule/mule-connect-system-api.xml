@@ -122,5 +122,15 @@ output application/json
     <flow name="get:\getAccount:mule-connect-system-api-config">
         <logger level="INFO" message="#[&quot;This is an INFO logger. Starting the GET:/getAccount flow. Incoming Account Id : &quot; ++ (attributes.queryParams.accountId default &quot;X&quot;) ++ &quot; || Client Id : &quot; ++ (attributes.headers['client_id'] default &quot;UNKNOWN&quot;)]" doc:name="Start Logger" category="com.galactica.logger"/>
 		<http:request method="GET" doc:name="Request" doc:id="7b2b583f-7019-4732-b771-0b9f48e2e4e0" config-ref="mule-logger-sapi-request" path='#["/account?accountId=" ++ (attributes.queryParams.accountId default "X")]'/>
+		<ee:transform doc:name="Transform Message" doc:id="ddd07859-a533-4940-8313-ce3e1852b495" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	ResponseString: "Account ID is " ++ (payload.accountId default "X") ++ ". The name of the person is '" ++ (payload.name default "Unknown") ++ "' and the address is '" ++ (payload.address default "Unknown") ++ "'."
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
     </flow>
 </mule>
