@@ -17,8 +17,8 @@ http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/sc
 	<http:request-config name="mule-logger-sapi-request" doc:name="HTTP Request configuration" doc:id="6a60287d-fb0b-4269-952b-aa36530c353c" basePath="${muleApi.base}" >
 		<http:request-connection host="${muleApi.host}" port="${muleApi.port}" />
 		<http:default-headers >
-			<http:default-header key="client_id" value="${muleApi.clientId}" />
-			<http:default-header key="client_secret" value="${muleApi.clientSecret}" />
+			<http:default-header key="client_id" value="${secure::muleApi.clientId}" />
+			<http:default-header key="client_secret" value="${secure::muleApi.clientSecret}" />
 		</http:default-headers>
 	</http:request-config>
     <configuration-properties doc:name="Configuration properties" doc:id="ed012b75-69d1-48e7-90b8-aa383a2d384b" file="props-${mule.env}.yaml" />
