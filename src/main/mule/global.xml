@@ -15,7 +15,7 @@ http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/sc
     </http:listener-config>
     <apikit:config name="mule-connect-system-api-config" api="resource::a70cf01e-09a0-4ffb-9409-f0c30de251e2:mule-connect-system-api:1.0.0:raml:zip:mule-connect-system-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
 	<http:request-config name="mule-logger-sapi-request" doc:name="HTTP Request configuration" doc:id="6a60287d-fb0b-4269-952b-aa36530c353c" basePath="${muleApi.base}" >
-		<http:request-connection host="${muleApi.host}" port="${muleApi.port}" />
+		<http:request-connection host="${muleApi.host}" />
 		<http:default-headers >
 			<http:default-header key="client_id" value="${secure::muleApi.clientId}" />
 			<http:default-header key="client_secret" value="${secure::muleApi.clientSecret}" />
