@@ -131,7 +131,7 @@ output application/json
 output application/json
 ---
 {
-	ResponseString: "Account ID is " ++ (payload.accountId default "X") ++ ". The name of the person is '" ++ (payload.name default "Unknown") ++ "' and the address is '" ++ (payload.address default "Unknown") ++ "'."
+	ResponseString: "Account ID is " ++ (payload[0].accountId default "X") ++ ". The name of the person is '" ++ (payload[0].name default "Unknown") ++ "' and the address is '" ++ (payload[0].address default "Unknown") ++ "'."
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
